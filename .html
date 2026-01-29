@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVAFAST - High-Tech Responsable</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #00D084;
+            --dark-green: #00A66C;
+            --light-green: #E8F9F3;
+            --white: #FFFFFF;
+            --off-white: #F8FAFB;
+            --text-dark: #1A1A1A;
+            --text-gray: #6B7280;
+            --border: #E5E7EB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .logo .nova {
+            color: var(--primary-green);
+        }
+
+        .logo-tagline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: width 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-green);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            margin-top: 85px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-green) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(0, 208, 132, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-50px, 50px) rotate(5deg); }
+        }
+
+        .hero .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .hero-content .badge {
+            display: inline-block;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            animation: slideInLeft 1s ease-out 0.2s both;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--primary-green);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-content h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background: rgba(0, 208, 132, 0.2);
+            z-index: -1;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            color: var(--text-gray);
+            animation: slideInLeft 1s ease-out 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: slideInLeft 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1.1rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary-green);
+            color: var(--white);
+            box-shadow: 0 10px 30px rgba(0, 208, 132, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-green);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 208, 132, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-green);
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: slideInRight 1s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .stats-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 208, 132, 0.15);
+            border-color: var(--primary-green);
+        }
+
+        .stats-card h3 {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary-green);
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .stats-card .number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--text-dark);
+            line-height: 1;
+        }
+
+        .stats-card .label {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-top: 0.5rem;
+        }
+
+         .trust-banner {
+            background: var(--primary-green);
+            padding: 2rem 0;
+            color: var(--white);
+        }
+
+        .trust-banner .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .trust-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .trust-item .value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 0.3rem;
+        }
+
+        .trust-item .description {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        /* RSE Section */
+        .rse-section {
+            padding: 8rem 0;
+            background: var(--off-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header .label {
+            display: inline-block;
+            background: var(--light-green);
+            color: var(--primary-green);
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .rse-pillars {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .pillar {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 3rem 2.5rem;
+            border: 2px solid var(--border);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-green);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+
+        .pillar:hover::before {
+            transform: scaleX(1);
+        }
+
+        .pillar:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 208, 132, 0.15);
+            border-color: var(--primary-green);
+        }
+
+        .pillar-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--light-green);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .pillar h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .pillar .subtitle {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .pillar ul {
+            list-style: none;
+        }
+
+        .pillar li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .pillar li:last-child {
+            border-bottom: none;
+        }
+
+        .pillar li::before {
+            content: '✓';
+            color: var(--primary-green);
+            font-weight: 900;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .products {
+            padding: 8rem 0;
+            background: var(--white);
+        }
+
+        .product-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid var(--border);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            z-index: 10;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-green);
+        }
+
+        .product-image {
+            background: linear-gradient(135deg, var(--light-green), var(--off-white));
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-category {
+            color: var(--primary-green);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .product-info .specs {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-info .price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--text-dark);
+        }
+
+        .product-info .old-price {
+            text-decoration: line-through;
+            color: var(--text-gray);
+            font-size: 1.3rem;
+        }
+
+        .eco-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--light-green);
+            color: var(--primary-green);
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+         .timeline-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-green) 100%);
+        }
+
+        .timeline {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary-green);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-green);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 4px var(--light-green);
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 2px solid var(--border);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            grid-column: 1;
+        }
+
+        .timeline-period {
+            display: inline-block;
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .timeline-content p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .action-tag {
+            background: var(--light-green);
+            color: var(--primary-green);
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+         .final-cta {
+            padding: 8rem 0;
+            background: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 40px,
+                    rgba(255, 255, 255, 0.05) 40px,
+                    rgba(255, 255, 255, 0.05) 80px
+                );
+            animation: moveStripes 20s linear infinite;
+        }
+
+        @keyframes moveStripes {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(80px, 80px); }
+        }
+
+        .final-cta .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta h2 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .final-cta p {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .final-cta .btn-white {
+            background: var(--white);
+            color: var(--primary-green);
+            padding: 1.3rem 3rem;
+            font-size: 1.1rem;
+        }
+
+        .final-cta .btn-white:hover {
+            background: var(--off-white);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+         footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-green);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+         @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+
+            .rse-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                padding-left: 80px;
+            }
+
+            .timeline-item::before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content,
+            .timeline-item:nth-child(odd) .timeline-content {
+                grid-column: 1;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .trust-banner .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .trust-banner .container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .final-cta h2 {
+                font-size: 2.5rem;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo"><span class="nova">NOVA</span>FAST</div>
+                <div class="logo-tagline">High-Tech Responsable</div>
+            </div>
+            <ul>
+                <li><a href="#produits">Produits</a></li>
+                <li><a href="#rse">Notre RSE</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">🌱 Engagement RSE 2026</div>
+                <h1>L'innovation <span class="highlight">high-tech</span> accessible et responsable</h1>
+                <p>Nous révolutionnons la distribution tech en combinant prix imbattables et engagement environnemental authentique. Parce que la technologie doit être accessible à tous, sans compromettre notre planète.</p>
+                <div class="cta-buttons">
+                    <a href="#produits" class="btn btn-primary">Découvrir nos offres</a>
+                    <a href="#rse" class="btn btn-secondary">Notre démarche RSE</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="stats-card">
+                    <h3>Chiffre d'affaires 2025</h3>
+                    <div class="number">18M€</div>
+                    <div class="label">Croissance rapide et durable</div>
+                </div>
+                <div class="stats-card">
+                    <h3>Budget RSE 2026</h3>
+                    <div class="number">120K€</div>
+                    <div class="label">Investissement stratégique</div>
+                </div>
+                <div class="stats-card">
+                    <h3>Notre équipe</h3>
+                    <div class="number">120</div>
+                    <div class="label">Collaborateurs engagés</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-banner">
+        <div class="container">
+            <div class="trust-item">
+                <span class="icon">💚</span>
+                <div class="value">100%</div>
+                <div class="description">Engagement RSE</div>
+            </div>
+            <div class="trust-item">
+                <span class="icon">📦</span>
+                <div class="value">3</div>
+                <div class="description">Magasins + E-commerce</div>
+            </div>
+            <div class="trust-item">
+                <span class="icon">⚡</span>
+                <div class="value">-30%</div>
+                <div class="description">Prix en moyenne</div>
+            </div>
+            <div class="trust-item">
+                <span class="icon">🌍</span>
+                <div class="value">3</div>
+                <div class="description">Piliers RSE activés</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rse" class="rse-section">
+        <div class="section-header">
+            <div class="label">🌱 Notre Engagement</div>
+            <h2>3 Piliers pour un Impact Réel</h2>
+            <p>Une transformation responsable et mesurable qui touche chaque aspect de notre activité</p>
+        </div>
+        <div class="rse-pillars">
+            <div class="pillar">
+                <div class="pillar-icon">🌿</div>
+                <h3>Environnement</h3>
+                <p class="subtitle">Réduction de notre empreinte écologique à chaque étape de la chaîne de valeur</p>
+                <ul>
+                    <li>Tri des déchets sur tous nos sites (6 mois)</li>
+                    <li>Emballages 100% recyclables (18 mois)</li>
+                    <li>Programme de reprise et reconditionnement</li>
+                    <li>Communication transparente sur notre impact</li>
+                </ul>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">👥</div>
+                <h3>Social</h3>
+                <p class="subtitle">Valorisation de nos équipes et amélioration continue des conditions de travail</p>
+                <ul>
+                    <li>Sécurité renforcée en entrepôt (immédiat)</li>
+                    <li>Parcours d'intégration structuré</li>
+                    <li>Formations continues pour tous</li>
+                    <li>Qualité de vie au travail prioritaire</li>
+                </ul>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">⚖️</div>
+                <h3>Gouvernance</h3>
+                <p class="subtitle">Structuration d'une démarche RSE transparente et partagée par tous</p>
+                <ul>
+                    <li>Charte RSE diffusée en interne et externe</li>
+                    <li>Comité RSE interservices actif</li>
+                    <li>Clauses RSE dans contrats fournisseurs</li>
+                    <li>Reporting mensuel des actions</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="produits" class="products">
+        <div class="section-header">
+            <div class="label">💻 Nos Produits</div>
+            <h2>High-Tech à Prix Révolutionnaires</h2>
+            <p>Les meilleures technologies aux prix les plus agressifs du marché</p>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-badge">-31%</div>
+                <div class="product-image">💻</div>
+                <div class="product-info">
+                    <div class="product-category">Informatique</div>
+                    <h3>Laptop Ultra-Performant</h3>
+                    <p class="specs">Intel Core i7 13ème gen • 16GB RAM DDR5 • SSD NVMe 512GB • Écran 15.6" Full HD</p>
+                    <div class="price-container">
+                        <div class="price">899€</div>
+                        <div class="old-price">1299€</div>
+                    </div>
+                    <div class="eco-badge">
+                        <span>🌿</span>
+                        <span>Emballage recyclable</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-badge">-28%</div>
+                <div class="product-image">📱</div>
+                <div class="product-info">
+                    <div class="product-category">Smartphones</div>
+                    <h3>Smartphone 5G Premium</h3>
+                    <p class="specs">128GB • Triple caméra 50MP • Écran AMOLED 120Hz • Charge rapide 65W</p>
+                    <div class="price-container">
+                        <div class="price">649€</div>
+                        <div class="old-price">899€</div>
+                    </div>
+                    <div class="eco-badge">
+                        <span>🌿</span>
+                        <span>Programme reprise</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-badge">-33%</div>
+                <div class="product-image">🎧</div>
+                <div class="product-info">
+                    <div class="product-category">Audio</div>
+                    <h3>Casque Audio Pro</h3>
+                    <p class="specs">Réduction de bruit active • Autonomie 30h • Hi-Res Audio • Multipoint</p>
+                    <div class="price-container">
+                        <div class="price">199€</div>
+                        <div class="old-price">299€</div>
+                    </div>
+                    <div class="eco-badge">
+                        <span>🌿</span>
+                        <span>Garantie 3 ans</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-badge">-33%</div>
+                <div class="product-image">⌚</div>
+                <div class="product-info">
+                    <div class="product-category">Wearables</div>
+                    <h3>Montre Sport Connectée</h3>
+                    <p class="specs">GPS intégré • Cardiofréquencemètre • Étanche 50m • Autonomie 14 jours</p>
+                    <div class="price-container">
+                        <div class="price">299€</div>
+                        <div class="old-price">449€</div>
+                    </div>
+                    <div class="eco-badge">
+                        <span>🌿</span>
+                        <span>Emballage recyclable</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="timeline-section">
+        <div class="section-header">
+            <div class="label">📅 Notre Roadmap</div>
+            <h2>Plan d'Action RSE 36 Mois</h2>
+            <p>Des résultats concrets et mesurables à chaque étape</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-period">0-6 MOIS • Court Terme</div>
+                    <h3>Actions Rapides & Visibles</h3>
+                    <p>Déploiement immédiat des premières initiatives pour un impact visible et rassurant auprès de toutes nos parties prenantes.</p>
+                    <div class="timeline-actions">
+                        <div class="action-tag">✓ Tri des déchets</div>
+                        <div class="action-tag">✓ Prévention sécurité</div>
+                        <div class="action-tag">✓ Charte RSE</div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-period">6-18 MOIS • Moyen Terme</div>
+                    <h3>Actions Structurantes</h3>
+                    <p>Mise en place de systèmes durables qui transforment en profondeur notre mode de fonctionnement et notre impact.</p>
+                    <div class="timeline-actions">
+                        <div class="action-tag">✓ Emballages recyclables</div>
+                        <div class="action-tag">✓ Parcours d'intégration</div>
+                        <div class="action-tag">✓ Comité RSE</div>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-period">18-36 MOIS • Long Terme</div>
+                    <h3>Engagement des Parties Prenantes</h3>
+                    <p>Mobilisation de l'écosystème complet pour amplifier l'impact et créer un cercle vertueux de responsabilité partagée.</p>
+                    <div class="timeline-actions">
+                        <div class="action-tag">✓ Info clients transparente</div>
+                        <div class="action-tag">✓ Managers QVT</div>
+                        <div class="action-tag">✓ Clauses fournisseurs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Prêt à Rejoindre la Révolution High-Tech Responsable ?</h2>
+            <p>Profitez des meilleurs prix du marché tout en soutenant une entreprise engagée pour l'environnement et ses équipes</p>
+            <a href="#contact" class="btn btn-white">Nous Contacter</a>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>NOVAFAST</h4>
+                <p>Pionniers de la distribution high-tech responsable. Prix imbattables, qualité premium, engagement RSE authentique.</p>
+                <p style="margin-top: 1.5rem;">
+                    <strong>📍 49800 Trélazé</strong><br>
+                    <strong>📧 direction@novafast.fr</strong><br>
+                    <strong>📞 09-XX-XX-XX-XX</strong>
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>Produits</h4>
+                <ul>
+                    <li><a href="#">Ordinateurs</a></li>
+                    <li><a href="#">Smartphones</a></li>
+                    <li><a href="#">Audio & Vidéo</a></li>
+                    <li><a href="#">Objets Connectés</a></li>
+                    <li><a href="#">Accessoires</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Entreprise</h4>
+                <ul>
+                    <li><a href="#">Notre Histoire</a></li>
+                    <li><a href="#">Charte RSE</a></li>
+                    <li><a href="#">Nos Engagements</a></li>
+                    <li><a href="#">Carrières</a></li>
+                    <li><a href="#">Presse</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Service Client 24/7</a></li>
+                    <li><a href="#">Livraison & Retours</a></li>
+                    <li><a href="#">Garanties</a></li>
+                    <li><a href="#">Programme Reprise</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NOVAFAST - High-Tech Responsable | Mentions Légales | Politique de Confidentialité | CGV</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 85;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.pillar, .product-card, .timeline-content, .stats-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+
+        // Nav background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
